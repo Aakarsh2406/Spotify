@@ -1,3 +1,3 @@
-create or replace external table spotify.external_table.artist_data
-    with location = @spotify_artist
-    file_format = (Type = CSV);
+create or replace external table SPOTIFY.EXTERNAL_TABLE.ARTIST_DATA
+location=@SPOTIFY.STAGES.SPOTIFY_ARTIST/
+FILE_FORMAT = (FORMAT_NAME = 'my_csv_format');
