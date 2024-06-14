@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+
+  - name: raw_stg_song
+    database: spotify
+    schema: external_table
+    tables:
+      - name: SONG_DATA
+        columns:
+          - name: value 
+
+  - name: raw_stg_album
+    database: spotify
+    schema: external_table
+    tables:
+      - name: ALBUMS_DATA
+        columns:
+          - name: value 
