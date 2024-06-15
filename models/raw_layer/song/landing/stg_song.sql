@@ -2,6 +2,7 @@
     config (
         materialized="table",
         database = "Spotify",
+        schema="raw",
         alias= "raw_songs",
         pre_hook= "alter external table {{ source('raw_stg_song','SONG_DATA') }} refresh;",
     )
