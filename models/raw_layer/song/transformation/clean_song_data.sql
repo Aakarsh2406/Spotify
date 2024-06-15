@@ -19,8 +19,12 @@ with cte as (
 {% if is_incremental() %}
 
 new_data as (
-    select * from cte
-    where SourceFiledate  > (select max(SourceFiledate) from {{ this }})
+    select src.* from cte as src
+    left join {{ this }} as main
+    on src.SourceFilename = main.SourceFilename
+    AND src.SourceFiledate = main.SourceFiledate
+    where main.SourceFilename is null and main.SourceFiledate is null
+
 )
 
 {% else %}
