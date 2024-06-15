@@ -5,7 +5,7 @@
 with cte as (
     select  Song_ID::VARCHAR(255) COLLATE 'en-ci' as Song_ID,
             Song_Name::VARCHAR(255) COLLATE 'en-ci' as Song_Name,
-            Song_Duration::NUMBER(38,0) as Song_Duration,
+            (TO_CHAR( FLOOR(song_duration / 60000), 'FM9990') || ' min ' || TO_CHAR(FLOOR((song_duration % 60000) / 1000), 'FM990') || ' sec')::VARCHAR(255) COLLATE 'en-ci' as Song_Duration,
             Song_URL::VARCHAR(255) COLLATE 'en-ci' as Song_URL,
             Song_Popularity::NUMBER(38,0) as Song_Popularity,
             Song_Added::TIMESTAMP_NTZ(9) as Song_Added,
