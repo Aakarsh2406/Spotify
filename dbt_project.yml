@@ -31,3 +31,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
+
+
+models:
+  stg_song:
+    +database: spotify
+    +schema: raw
+  
+  clean_song_data:
+    +database: spotify
+    +schema: dbo
