@@ -34,9 +34,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 
 models:
-  raw_layer:
-    materialized: table
-    album:
-      +database: Spotify
-      +schema: raw
-      +on_schema_change: fail
+  stg_song:
+    +database: spotify
+    +schema: raw
+  
+  clean_song_data:
+    +database: spotify
+    +schema: dbo
