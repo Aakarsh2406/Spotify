@@ -1,5 +1,8 @@
-CREATE OR REPLACE TABLE Spotify_Artist(
-    "Artist_Id" INT NOT NULL,
-    "Artist_Name" VARCHAR(255) collate 'en-ci' NOT NULL,
-    "External_Url" VARCHAR(255) collate 'en-ci' NOT NULL
+create or replace TABLE SPOTIFY.DBO.SPOTIFY_ARTIST (
+	ARTIST_ID VARCHAR(255) COLLATE 'en-ci',
+	ARTIST_NAME VARCHAR(255) COLLATE 'en-ci',
+	EXTERNAL_URL VARCHAR(255) COLLATE 'en-ci',
+    SOURCEFILENAME VARCHAR(255) COLLATE 'en-ci',
+	SOURCEFILEDATE TIMESTAMP_NTZ(9),
+    created_date timestamp_ntz(9)
 );

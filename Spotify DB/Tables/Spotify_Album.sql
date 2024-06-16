@@ -1,7 +1,11 @@
-CREATE  OR REPLACE TABLE Spotify_Album(
-    "Album_Id" INT ,
-    "Album_Name" VARCHAR(255) collate 'en-ci' ,
-    "Release_Date" DATETIME ,
-    "Total_Tracks" INT ,
-    "Urls" VARCHAR(255) 
+create or replace TABLE SPOTIFY.DBO.SPOTIFY_ALBUM (
+	ALBUM_ID VARCHAR(255) COLLATE 'en-ci',
+	ALBUM_NAME VARCHAR(255) COLLATE 'en-ci',
+	RELEASE_DATE TIMESTAMP_NTZ(9),
+	TOTAL_TRACKS NUMBER(38,0),
+	URLS VARCHAR(255) COLLATE 'en-ci',
+	SOURCEFILENAME VARCHAR(255) COLLATE 'en-ci',
+	SOURCEFILEDATE TIMESTAMP_NTZ(9),
+    created_date timestamp_ntz(9)
+
 );

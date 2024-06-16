@@ -1,5 +1,6 @@
+--depends on {{ref('stg_song')}}
 {{
-    config(materialized='incremental',database='Spotify',schema='dbo', alias='SPOTIFY_SONGS')
+    config(materialized='incremental',database='Spotify',schema='dbo', alias='SPOTIFY_SONGS', merge_exclude_columns = ['created_date'])
 }}
 
 with cte as (
@@ -12,7 +13,8 @@ with cte as (
             Album_ID::VARCHAR(255) COLLATE 'en-ci' as Album_ID,
             Artist_ID::VARCHAR(255) COLLATE 'en-ci' as Artist_ID,
             'Transformed_Songs'::VARCHAR(255) COLLATE 'en-ci' as SourceFilename,
-            SourceFiledate::date as SourceFiledate  
+            SourceFiledate::date as SourceFiledate ,
+            getdate()::timestamp_ntz(9) as created_date
     from {{ ref('stg_song') }}
 ),
 
