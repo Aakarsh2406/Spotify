@@ -1,10 +1,13 @@
-CREATE OR REPLACE TABLE Songs(
-    "Song_ID" INT ,
-    "Song_Name" VARCHAR(255) collate 'en-ci' ,
-    "Song_Duration" INT ,
-    "Song_URL" VARCHAR(255) collate 'en-ci' ,
-    "Song_Popularity" INT ,
-    "Song_Added" DATETIME ,
-    "Album_ID" INT ,
-    "Artist_ID" INT 
+create or replace TABLE SPOTIFY.DBO.SPOTIFY_SONGS (
+	SONG_ID VARCHAR(255) COLLATE 'en-ci',
+	SONG_NAME VARCHAR(255) COLLATE 'en-ci',
+	SONG_DURATION VARCHAR(255) COLLATE 'en-ci',
+	SONG_URL VARCHAR(255) COLLATE 'en-ci',
+	SONG_POPULARITY NUMBER(38,0),
+	SONG_ADDED TIMESTAMP_NTZ(9),
+	ALBUM_ID VARCHAR(255) COLLATE 'en-ci',
+	ARTIST_ID VARCHAR(255) COLLATE 'en-ci',
+	SOURCEFILENAME VARCHAR(255) COLLATE 'en-ci',
+	SOURCEFILEDATE DATE,
+    created_date timestamp_ntz(9)
 );

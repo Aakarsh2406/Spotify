@@ -21,7 +21,9 @@ new_data as (
         src.total_tracks::NUMBER(38,0) AS TOTAL_TRACKS,
         src.urls::VARCHAR(255) AS URLS,
         'Transformed_Album_Details'::varchar(255) COLLATE 'en-ci' as sourcefilename,
-        src.sourcefiledate::TIMESTAMP_NTZ(9) as sourcefiledate from cte as src
+        src.sourcefiledate::TIMESTAMP_NTZ(9) as sourcefiledate ,
+        getdate()::timestamp_ntz(9) as created_date
+        from cte as src
     left join {{ this }} as main
     on src.SourceFilename = main.SourceFilename
     AND src.SourceFiledate = main.SourceFiledate
